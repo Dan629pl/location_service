@@ -36,7 +36,7 @@ class LocationService {
         return Optional.of(deviceId)
                 .map(userDeviceFacade::findByDeviceId)
                 .map(UserDevice::getLocationId)
-                .map(deviceLocationRepository::findByLocationId)
+                .flatMap(deviceLocationRepository::findByLocationId)
                 .map(deviceLocationMapper::map)
                 .orElseThrow(LocationNotFoundException::new);
 

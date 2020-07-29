@@ -6,6 +6,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 class UserDeviceConfiguration {
 
+    UserDeviceFacade testUserDeviceFacade() {
+        return userDeviceFacade(new InMemoryUserDeviceRepository());
+    }
+
     @Bean
     UserDeviceFacade userDeviceFacade(UserDeviceRepository userDeviceRepository) {
         final var mapper = new UserDeviceMapper();

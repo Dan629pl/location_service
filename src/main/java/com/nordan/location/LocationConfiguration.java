@@ -11,15 +11,18 @@ class LocationConfiguration {
 
     private final UserDeviceFacade userDeviceFacade;
 
-    @Bean
-    LocationFacade deviceLocationFacade(LocationRepository deviceLocationRepository) {
+    LocationFacade testLocationFacade() {
+        return locationFacade(new InMemoryLocationRepository());
+    }
 
+    @Bean
+    LocationFacade locationFacade(LocationRepository locationRepository) {
         final var deviceLocationMapper = new LocationMapper();
-        final var deviceLocationService = new LocationService(
-                deviceLocationRepository,
+        final var locationService = new LocationService(
+                locationRepository,
                 deviceLocationMapper,
                 userDeviceFacade
         );
-        return new LocationFacade(deviceLocationService);
+        return new LocationFacade(locationService);
     }
 }

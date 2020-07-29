@@ -27,7 +27,7 @@ public class UserDeviceService {
     }
 
     UserDevice findByDeviceId(UUID deviceId) {
-        return Optional.ofNullable(userDeviceRepository.findByDeviceId(deviceId))
+        return userDeviceRepository.findByDeviceId(deviceId)
                 .map(userDeviceMapper::map)
                 .orElseThrow(DeviceNotFoundException::new);
     }
