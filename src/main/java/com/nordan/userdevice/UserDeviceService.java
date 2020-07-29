@@ -19,7 +19,7 @@ public class UserDeviceService {
                 .map(UserDeviceFactory::create)
                 .map(userDeviceRepository::save)
                 .map(userDeviceMapper::map)
-                .orElseThrow(() -> new UnexpectedException("Błąd zapisu"));
+                .orElseThrow(() -> new UnexpectedException("Registration error"));
     }
 
     void delete(UUID deviceId) {

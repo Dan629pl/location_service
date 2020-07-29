@@ -25,7 +25,7 @@ class LocationService {
                 .map(locationId -> createLocation(locationId, location))
                 .map(deviceLocationRepository::save)
                 .map(deviceLocationMapper::map)
-                .orElseThrow(() -> new UnexpectedException("Błąd aktualizacji lokalizacji"));
+                .orElseThrow(() -> new UnexpectedException("Location update error"));
     }
 
     private LocationEntity createLocation(UUID locationId, Location location) {
