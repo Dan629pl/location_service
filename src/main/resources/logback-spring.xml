@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="LOGS" value="./logs" />
+    <property name="LOGS" value="./logs"/>
     <appender name="Console"
               class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -25,18 +25,18 @@
         </encoder>
     </appender>
     <root level="info">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
     </root>
 
     <logger name="com.nordan" level="trace" additivity="false">
-        <appender-ref ref="RollingFile" />
-        <appender-ref ref="Console" />
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
     </logger>
     <logger name="org.hibernate.SQL" level="DEBUG">
-        <appender-ref ref="RollingFile" />
+        <appender-ref ref="RollingFile"/>
     </logger>
     <logger name="org.hibernate.type" level="TRACE">
-        <appender-ref ref="RollingFile" />
+        <appender-ref ref="RollingFile"/>
     </logger>
 </configuration>

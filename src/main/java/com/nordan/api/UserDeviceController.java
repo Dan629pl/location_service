@@ -1,6 +1,5 @@
 package com.nordan.api;
 
-import com.nordan.location.model.Location;
 import com.nordan.userdevice.UserDeviceFacade;
 import com.nordan.userdevice.model.UserDevice;
 import lombok.RequiredArgsConstructor;

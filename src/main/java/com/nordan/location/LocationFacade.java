@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor

@@ -9,10 +9,10 @@ import java.util.UUID;
 interface UserDeviceRepository extends Repository<UserDeviceEntity, Long> {
 
     @Modifying
-    @Query(value = "DELETE FROM USER_DEVICE D WHERE D.DEVICE_ID = :deviceId",nativeQuery = true)
+    @Query(value = "DELETE FROM USER_DEVICE D WHERE D.DEVICE_ID = :deviceId", nativeQuery = true)
     void deleteByDeviceId(UUID deviceId);
 
-    @Query(value = "SELECT * FROM USER_DEVICE D WHERE D.DEVICE_ID = :deviceId",nativeQuery = true)
+    @Query(value = "SELECT * FROM USER_DEVICE D WHERE D.DEVICE_ID = :deviceId", nativeQuery = true)
     UserDeviceEntity findByDeviceId(UUID deviceId);
 
     UserDeviceEntity save(UserDeviceEntity userDeviceEntity);

@@ -6,8 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.UUID;
-
 @Getter
 @Builder
 @EqualsAndHashCode

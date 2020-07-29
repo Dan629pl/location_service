@@ -22,6 +22,6 @@ public class UserDeviceFacade {
 
     @Transactional
     public void delete(UUID deviceId) {
-         userDeviceService.delete(deviceId);
+        userDeviceService.delete(deviceId);
     }
 }

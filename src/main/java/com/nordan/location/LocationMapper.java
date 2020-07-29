@@ -4,10 +4,10 @@ import com.nordan.location.model.Location;
 
 class LocationMapper {
 
-     Location map(LocationEntity entity) {
-         return Location.builder()
-                 .latitude(entity.getLatitude())
-                 .longitude(entity.getLongitude())
-                 .build();
-     }
+    Location map(LocationEntity entity) {
+        return Location.builder()
+                .latitude(entity.getLatitude())
+                .longitude(entity.getLongitude())
+                .build();
+    }
 }

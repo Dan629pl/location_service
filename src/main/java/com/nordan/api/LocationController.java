@@ -20,6 +20,7 @@ public class LocationController {
     ResponseEntity<Location> findByDeviceId(@Valid @PathVariable UUID deviceId) {
         return ResponseEntity.ok(deviceLocationFacade.findByDeviceId(deviceId));
     }
+
     @PostMapping("/update/{deviceId}")
     ResponseEntity<Location> update(@Valid @PathVariable UUID deviceId, @RequestBody Location location) {
         return ResponseEntity.ok(deviceLocationFacade.update(deviceId, location));
