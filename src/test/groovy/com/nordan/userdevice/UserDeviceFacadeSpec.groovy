@@ -5,11 +5,12 @@ import com.nordan.userdevice.model.UserDevice
 import spock.lang.Shared
 import spock.lang.Specification
 
-class UserDeviceFacadeTest extends Specification {
+class UserDeviceFacadeSpec extends Specification {
 
     def facade = new UserDeviceConfiguration().testUserDeviceFacade()
+
     @Shared
-    def username = "UserName"
+    def username = "User Name"
     @Shared
     def email = "email@sample.com"
     @Shared
@@ -81,6 +82,4 @@ class UserDeviceFacadeTest extends Specification {
         then: "system should throw exception"
         thrown(DeviceNotFoundException)
     }
-
-
 }
