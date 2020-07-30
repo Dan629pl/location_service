@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemoryLocationRepository implements LocationRepository {
+class InMemoryLocationRepository implements LocationRepository {
     private final Map<UUID, LocationEntity> db = new ConcurrentHashMap<>();
 
     @Override

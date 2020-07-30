@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemoryUserDeviceRepository implements UserDeviceRepository {
+class InMemoryUserDeviceRepository implements UserDeviceRepository {
 
     private final Map<UUID, UserDeviceEntity> db = new ConcurrentHashMap<>();
 
