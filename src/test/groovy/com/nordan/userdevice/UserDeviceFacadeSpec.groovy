@@ -1,13 +1,14 @@
 package com.nordan.userdevice
 
 import com.nordan.exception.DeviceNotFoundException
+import com.nordan.location.LocationFacade
 import com.nordan.userdevice.model.UserDevice
 import spock.lang.Shared
 import spock.lang.Specification
 
 class UserDeviceFacadeSpec extends Specification {
-
-    def facade = new UserDeviceConfiguration().testUserDeviceFacade()
+    def locationFacade = Mock(LocationFacade)
+    def facade = new UserDeviceConfiguration(locationFacade).testUserDeviceFacade()
 
     @Shared
     def username = "User Name"
