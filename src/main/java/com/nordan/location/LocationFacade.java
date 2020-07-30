@@ -10,14 +10,19 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class LocationFacade {
 
-    private final LocationService deviceLocationService;
+    private final LocationService locationService;
 
     @Transactional
     public Location update(@Valid UUID deviceId, @Valid Location location) {
-        return deviceLocationService.update(deviceId, location);
+        return locationService.update(deviceId, location);
     }
 
     public Location findByDeviceId(UUID deviceId) {
-        return deviceLocationService.findByDeviceId(deviceId);
+        return locationService.findByDeviceId(deviceId);
+    }
+
+    @Transactional
+    public void deleteByLocationId(UUID locationId) {
+        locationService.deleteByLocationId(locationId);
     }
 }

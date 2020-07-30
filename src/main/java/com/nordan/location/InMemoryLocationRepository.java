@@ -18,4 +18,9 @@ class InMemoryLocationRepository implements LocationRepository {
         db.put(entity.getLocationId(), entity);
         return db.get(entity.getLocationId());
     }
+
+    @Override
+    public void deleteByLocationId(UUID locationId) {
+        db.values().removeIf(entity -> locationId.equals(entity.getLocationId()));
+    }
 }

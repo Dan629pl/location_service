@@ -1,6 +1,7 @@
 package com.nordan.location;
 
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
@@ -13,4 +14,8 @@ interface LocationRepository extends Repository<LocationEntity, Long> {
     Optional<LocationEntity> findByLocationId(UUID locationId);
 
     LocationEntity save(LocationEntity entity);
+
+    @Modifying
+    @Query(value = "DELETE FROM LOCATION D WHERE D.LOCATION_ID = :locationId", nativeQuery = true)
+    void deleteByLocationId(UUID locationId);
 }

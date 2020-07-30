@@ -2,6 +2,7 @@ package com.nordan.userdevice;
 
 import com.nordan.exception.DeviceNotFoundException;
 import com.nordan.exception.UnexpectedException;
+import com.nordan.location.LocationFacade;
 import com.nordan.userdevice.model.UserDevice;
 import lombok.RequiredArgsConstructor;
 
@@ -13,6 +14,7 @@ public class UserDeviceService {
 
     private final UserDeviceRepository userDeviceRepository;
     private final UserDeviceMapper userDeviceMapper;
+    private final LocationFacade locationFacade;
 
     UserDevice register(UserDevice userDevice) {
         return Optional.of(userDevice)
@@ -22,7 +24,10 @@ public class UserDeviceService {
                 .orElseThrow(() -> new UnexpectedException("Registration error"));
     }
 
-    void delete(UUID deviceId) {
+    void deleteByDeviceId(UUID deviceId) {
+        userDeviceRepository.findByDeviceId(deviceId)
+                .map(UserDeviceEntity::getLocationId)
+                .ifPresent(locationFacade::deleteByLocationId);
         userDeviceRepository.deleteByDeviceId(deviceId);
     }
 

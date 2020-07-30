@@ -1,15 +1,18 @@
 package com.nordan.location;
 
 import com.nordan.userdevice.UserDeviceFacade;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
-@RequiredArgsConstructor
 class LocationConfiguration {
 
     private final UserDeviceFacade userDeviceFacade;
+
+    LocationConfiguration(@Lazy UserDeviceFacade userDeviceFacade) {
+        this.userDeviceFacade = userDeviceFacade;
+    }
 
     LocationFacade testLocationFacade() {
         return locationFacade(new InMemoryLocationRepository());

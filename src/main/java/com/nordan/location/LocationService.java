@@ -48,4 +48,8 @@ class LocationService {
                 .map(deviceLocationMapper::map)
                 .orElseThrow(LocationNotFoundException::new);
     }
+
+    void deleteByLocationId(UUID locationId) {
+        deviceLocationRepository.deleteByLocationId(locationId);
+    }
 }
