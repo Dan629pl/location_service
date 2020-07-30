@@ -66,6 +66,7 @@ class UserDeviceFacadeSpec extends Specification {
     }
 
     def "should remove user device from the database"() {
+
         given: "sample request is prepared"
         def request = UserDevice.builder()
                 .username(username)

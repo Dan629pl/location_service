@@ -70,6 +70,23 @@ class LocationFacadeSpec extends Specification {
         latitude == result.latitude
         longitude == result.longitude
     }
+    def "should remove user device from the database when user device is removed"() {
+
+        given: "mock user device find facade and prepare request"
+        userDeviceFacade.findByDeviceId(deviceId) >> userDevice
+        def request = Location.builder()
+                .latitude(latitude)
+                .longitude(longitude)
+                .build()
+
+        when: "location is delete from database"
+        facade.update(deviceId, request)
+        facade.deleteByLocationId(locationId)
+        facade.findByDeviceId(deviceId)
+
+        then: "system should throw exception"
+        thrown(LocationNotFoundException)
+    }
 
     UserDevice createUserDevice() {
         return UserDevice.builder()
